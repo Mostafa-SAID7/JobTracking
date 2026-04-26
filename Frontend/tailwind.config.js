@@ -7,52 +7,70 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Microsoft-inspired palette
+        // Primary Red (60%) - Main brand color
         primary: {
-          50: '#f0f4f8',
-          100: '#e1e8f0',
-          200: '#c3d1e1',
-          300: '#a5bbd2',
-          400: '#7a9bc4',
-          500: '#0078d4', // Microsoft Blue
-          600: '#0063b1',
-          700: '#004a8e',
-          800: '#00365f',
-          900: '#001f36',
-        },
-        // Red accent with neon effects
-        accent: {
-          50: '#fff5f5',
-          100: '#ffe0e0',
-          200: '#ffc1c1',
-          300: '#ff9999',
-          400: '#ff6b6b',
-          500: '#e81123', // Microsoft Red
+          50: '#ffe5e5',
+          100: '#ffcccc',
+          200: '#ff9999',
+          300: '#ff6666',
+          400: '#ff3333',
+          500: '#e81123', // Primary Red
           600: '#d81b21',
           700: '#c50f1f',
           800: '#a4373a',
           900: '#5d1f1a',
         },
-        // Neon effects
-        neon: {
-          red: '#ff006e',
-          pink: '#ff1493',
-          cyan: '#00d9ff',
-          lime: '#39ff14',
-          purple: '#b300ff',
+        // Red accent (60% - primary brand)
+        accent: {
+          50: '#ffe5e5',
+          100: '#ffcccc',
+          200: '#ff9999',
+          300: '#ff6666',
+          400: '#ff3333',
+          500: '#e81123', // Primary Red
+          600: '#d81b21',
+          700: '#c50f1f',
+          800: '#a4373a',
+          900: '#5d1f1a',
         },
-        // Neutral palette
+        // Black (20%) - Secondary/dark elements
+        dark: {
+          50: '#f5f5f5',
+          100: '#ebebeb',
+          200: '#d7d7d7',
+          300: '#c3c3c3',
+          400: '#afafaf',
+          500: '#1f1f1f', // Dark Black
+          600: '#1a1a1a',
+          700: '#151515',
+          800: '#0f0f0f',
+          900: '#000000',
+        },
+        // White (20%) - Light/background elements
+        light: {
+          50: '#ffffff',
+          100: '#fafafa',
+          200: '#f5f5f5',
+          300: '#f0f0f0',
+          400: '#ebebeb',
+          500: '#e6e6e6',
+          600: '#d9d9d9',
+          700: '#cccccc',
+          800: '#bfbfbf',
+          900: '#b3b3b3',
+        },
+        // Neutral palette (grayscale for text and borders)
         neutral: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
+          50: '#ffffff',
+          100: '#f9f9f9',
+          200: '#f0f0f0',
+          300: '#e6e6e6',
+          400: '#cccccc',
+          500: '#999999',
+          600: '#666666',
+          700: '#333333',
+          800: '#1f1f1f',
+          900: '#000000',
         },
       },
       fontFamily: {

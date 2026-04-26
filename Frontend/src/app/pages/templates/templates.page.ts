@@ -14,7 +14,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
       <!-- Form Section -->
       <div class="card-elevated bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-800">
         <div class="flex items-center gap-md mb-lg">
-          <div class="w-8 h-8 bg-accent-500 rounded-lg flex items-center justify-center shadow-neon-red">
+          <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center shadow-neon-red">
             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
             </svg>
@@ -45,7 +45,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
               placeholder="Use placeholders: JobTitle, Category, Github, Portfolio, Email"
               rows="6"
               required
-              class="input-base resize-none focus:ring-accent-500 focus:border-accent-500">
+              class="input-base resize-none focus:ring-primary-500 focus:border-primary-500">
             </textarea>
             <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-xs">Available placeholders: JobTitle, Category, Github, Portfolio, Email</p>
           </div>
@@ -69,7 +69,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
               name="emailBodyTemplate"
               placeholder="Use placeholders: JobTitle, Category, Github, Portfolio, Email"
               rows="6"
-              class="input-base resize-none focus:ring-accent-500 focus:border-accent-500">
+              class="input-base resize-none focus:ring-primary-500 focus:border-primary-500">
             </textarea>
           </div>
 
@@ -174,7 +174,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
       <!-- Templates List -->
       <div>
         <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-lg flex items-center gap-sm">
-          <svg class="w-6 h-6 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M4 6h16V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v4h12V8c0-1.1-.9-2-2-2zm10 15h-8v-4h8v4zm6-10H4V6h16v5z"/>
           </svg>
           Existing Templates
@@ -208,7 +208,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
               </button>
               <button 
                 (click)="deleteTemplate(template.id)" 
-                class="btn-sm bg-accent-500 text-white hover:bg-accent-600 rounded-md px-md py-xs shadow-neon-red flex items-center gap-xs">
+                class="btn-sm bg-primary-500 text-white hover:bg-primary-600 rounded-md px-md py-xs shadow-neon-red flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-9l-1 1H5v2h14V4z"/>
                 </svg>
@@ -228,7 +228,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
                   </svg>
                   GitHub
                 </p>
-                <a [href]="template.githubUrl" target="_blank" class="text-accent-500 hover:text-accent-600 text-sm break-all">
+                <a [href]="template.githubUrl" target="_blank" class="text-primary-500 hover:text-primary-600 text-sm break-all">
                   {{ template.githubUrl }}
                 </a>
               </div>
@@ -239,47 +239,47 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
                   </svg>
                   Portfolio
                 </p>
-                <a [href]="template.portfolioUrl" target="_blank" class="text-accent-500 hover:text-accent-600 text-sm break-all">
+                <a [href]="template.portfolioUrl" target="_blank" class="text-primary-500 hover:text-primary-600 text-sm break-all">
                   {{ template.portfolioUrl }}
                 </a>
               </div>
             </div>
 
             <!-- Message Template -->
-            <div class="bg-blue-50 dark:bg-blue-900/20 p-lg rounded-lg">
-              <p class="text-sm font-semibold text-blue-900 dark:text-blue-300 mb-md flex items-center gap-xs">
+            <div class="bg-primary-50 dark:bg-primary-900/20 p-lg rounded-lg">
+              <p class="text-sm font-semibold text-primary-900 dark:text-primary-300 mb-md flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
                 </svg>
                 Message Template
               </p>
-              <p class="text-sm text-blue-800 dark:text-blue-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-md rounded border border-blue-200 dark:border-blue-700">
+              <p class="text-sm text-primary-800 dark:text-primary-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-md rounded border border-primary-200 dark:border-primary-700">
                 {{ template.messageTemplate }}
               </p>
             </div>
 
             <!-- Email Subject -->
-            <div *ngIf="template.emailSubjectTemplate" class="bg-purple-50 dark:bg-purple-900/20 p-lg rounded-lg">
-              <p class="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-md flex items-center gap-xs">
+            <div *ngIf="template.emailSubjectTemplate" class="bg-primary-50 dark:bg-primary-900/20 p-lg rounded-lg">
+              <p class="text-sm font-semibold text-primary-900 dark:text-primary-300 mb-md flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
                 Email Subject
               </p>
-              <p class="text-sm text-purple-800 dark:text-purple-300 bg-white dark:bg-neutral-800 p-md rounded border border-purple-200 dark:border-purple-700">
+              <p class="text-sm text-primary-800 dark:text-primary-300 bg-white dark:bg-neutral-800 p-md rounded border border-primary-200 dark:border-primary-700">
                 {{ template.emailSubjectTemplate }}
               </p>
             </div>
 
             <!-- Email Body -->
-            <div *ngIf="template.emailBodyTemplate" class="bg-green-50 dark:bg-green-900/20 p-lg rounded-lg">
-              <p class="text-sm font-semibold text-green-900 dark:text-green-300 mb-md flex items-center gap-xs">
+            <div *ngIf="template.emailBodyTemplate" class="bg-primary-50 dark:bg-primary-900/20 p-lg rounded-lg">
+              <p class="text-sm font-semibold text-primary-900 dark:text-primary-300 mb-md flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
                 </svg>
                 Email Body
               </p>
-              <p class="text-sm text-green-800 dark:text-green-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-md rounded border border-green-200 dark:border-green-700 max-h-48 overflow-y-auto">
+              <p class="text-sm text-primary-800 dark:text-primary-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-md rounded border border-primary-200 dark:border-primary-700 max-h-48 overflow-y-auto">
                 {{ template.emailBodyTemplate }}
               </p>
             </div>

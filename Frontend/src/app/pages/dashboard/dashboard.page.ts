@@ -15,7 +15,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
       <!-- Input Section -->
       <div class="card-elevated bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-800">
         <div class="flex items-center gap-md mb-lg">
-          <div class="w-8 h-8 bg-accent-500 rounded-lg flex items-center justify-center shadow-neon-red">
+          <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center shadow-neon-red">
             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
             </svg>
@@ -38,7 +38,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
           <!-- Image Upload -->
           <div>
             <label class="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-sm">Image Upload (Optional)</label>
-            <div class="border-2 border-dashed border-neutral-300 dark:border-neutral-600 rounded-lg p-lg hover:border-accent-500 transition-colors duration-base cursor-pointer">
+            <div class="border-2 border-dashed border-neutral-300 dark:border-neutral-600 rounded-lg p-lg hover:border-primary-500 transition-colors duration-base cursor-pointer">
               <input 
                 type="file" 
                 #imageInput
@@ -46,14 +46,14 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
                 accept=".jpg,.jpeg,.png,.pdf"
                 class="w-full cursor-pointer">
             </div>
-            <div *ngIf="selectedImage" class="mt-md p-md bg-white dark:bg-neutral-800 rounded-md border border-accent-200 dark:border-accent-700 flex items-center justify-between">
+            <div *ngIf="selectedImage" class="mt-md p-md bg-white dark:bg-neutral-800 rounded-md border border-primary-200 dark:border-primary-700 flex items-center justify-between">
               <div class="flex items-center gap-sm">
-                <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                 </svg>
                 <span class="text-sm text-neutral-700 dark:text-neutral-300">{{ selectedImage.name }}</span>
               </div>
-              <button type="button" (click)="clearImage()" class="btn-sm bg-accent-500 text-white hover:bg-accent-600 rounded-md px-md py-xs">
+              <button type="button" (click)="clearImage()" class="btn-sm bg-primary-500 text-white hover:bg-primary-600 rounded-md px-md py-xs">
                 Clear
               </button>
             </div>
@@ -121,7 +121,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
       <!-- Jobs Section -->
       <div>
         <h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-lg flex items-center gap-sm">
-          <svg class="w-6 h-6 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
           </svg>
           Job Feed
@@ -139,10 +139,10 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
               <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-xs">{{ job.category }} • {{ job.createdAt | date:'short' }}</p>
             </div>
             <div class="flex flex-wrap gap-sm">
-              <span class="badge-primary">{{ job.category }}</span>
+              <span class="badge bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">{{ job.category }}</span>
               <span class="badge" [ngClass]="{
                 'bg-green-100 text-green-700': job.applicationChannel === 'WhatsApp',
-                'bg-blue-100 text-blue-700': job.applicationChannel === 'Email',
+                'bg-primary-100 text-primary-700': job.applicationChannel === 'Email',
                 'bg-yellow-100 text-yellow-700': job.applicationChannel === 'Manual'
               }">
                 {{ job.applicationChannel }}
@@ -153,13 +153,13 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
           <!-- Job Details -->
           <div class="space-y-sm mb-lg pb-lg border-b border-neutral-200 dark:border-neutral-700">
             <p *ngIf="job.phoneNumber" class="text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-xs">
-              <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
               </svg>
               <span class="font-semibold">Phone:</span> {{ job.phoneNumber }}
             </p>
             <p *ngIf="job.email" class="text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-xs">
-              <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
               <span class="font-semibold">Email:</span> {{ job.email }}
@@ -167,14 +167,14 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
           </div>
 
           <!-- Generated Message -->
-          <div *ngIf="job.generatedMessage" class="bg-gradient-to-r from-accent-50 to-accent-100 dark:from-accent-900/20 dark:to-accent-900/10 p-lg rounded-lg mb-lg">
+          <div *ngIf="job.generatedMessage" class="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-900/10 p-lg rounded-lg mb-lg">
             <h4 class="font-semibold text-neutral-900 dark:text-white mb-md flex items-center gap-sm">
-              <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
               </svg>
               Generated Message
             </h4>
-            <p class="text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap text-sm bg-white dark:bg-neutral-800 p-md rounded border border-accent-200 dark:border-accent-700 mb-md">{{ job.generatedMessage }}</p>
+            <p class="text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap text-sm bg-white dark:bg-neutral-800 p-md rounded border border-primary-200 dark:border-primary-700 mb-md">{{ job.generatedMessage }}</p>
             <div class="flex flex-wrap gap-sm">
               <button 
                 (click)="copyToClipboard(job.generatedMessage!)" 
@@ -197,21 +197,21 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
           </div>
 
           <!-- Email Section -->
-          <div *ngIf="job.applicationChannel === 'Email'" class="bg-blue-50 dark:bg-blue-900/20 p-lg rounded-lg">
-            <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-md flex items-center gap-sm">
-              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+          <div *ngIf="job.applicationChannel === 'Email'" class="bg-primary-50 dark:bg-primary-900/20 p-lg rounded-lg">
+            <h4 class="font-semibold text-primary-900 dark:text-primary-300 mb-md flex items-center gap-sm">
+              <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
               Email Details
             </h4>
             <div class="space-y-sm mb-md">
-              <p class="text-sm text-blue-800 dark:text-blue-300"><span class="font-semibold">Subject:</span> {{ job.emailSubject }}</p>
-              <p class="text-sm text-blue-800 dark:text-blue-300 line-clamp-3">{{ job.emailBody }}</p>
+              <p class="text-sm text-primary-800 dark:text-primary-300"><span class="font-semibold">Subject:</span> {{ job.emailSubject }}</p>
+              <p class="text-sm text-primary-800 dark:text-primary-300 line-clamp-3">{{ job.emailBody }}</p>
             </div>
             <div class="flex flex-wrap gap-sm">
               <button 
                 (click)="previewEmail(job)" 
-                class="btn-sm bg-blue-500 text-white hover:bg-blue-600 rounded-md px-md py-xs flex items-center gap-xs">
+                class="btn-sm bg-primary-500 text-white hover:bg-primary-600 rounded-md px-md py-xs flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                 </svg>
@@ -219,7 +219,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
               </button>
               <button 
                 (click)="sendEmail(job)" 
-                class="btn-sm bg-accent-500 text-white hover:bg-accent-600 rounded-md px-md py-xs shadow-neon-red flex items-center gap-xs">
+                class="btn-sm bg-primary-500 text-white hover:bg-primary-600 rounded-md px-md py-xs shadow-neon-red flex items-center gap-xs">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16346272 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.99701575 L3.03521743,10.4380088 C3.03521743,10.5951061 3.34915502,10.7522035 3.50612381,10.7522035 L16.6915026,11.5376905 C16.6915026,11.5376905 17.1624089,11.5376905 17.1624089,12.0089827 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
                 </svg>
@@ -236,7 +236,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
           <!-- Modal Header -->
           <div class="flex items-center justify-between p-lg border-b border-neutral-200 dark:border-neutral-700 sticky top-0 bg-white dark:bg-neutral-900">
             <h3 class="text-xl font-bold text-neutral-900 dark:text-white flex items-center gap-sm">
-              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
               Email Preview
@@ -269,7 +269,7 @@ import { DropdownComponent, DropdownOption } from '../../components/ui/dropdown/
             <button 
               (click)="confirmSendEmail()" 
               class="btn-primary-neon flex-1">
-              ✉️ Send Email
+              Send Email
             </button>
           </div>
         </div>

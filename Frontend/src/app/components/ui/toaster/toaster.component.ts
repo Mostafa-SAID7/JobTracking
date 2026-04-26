@@ -13,8 +13,8 @@ import { ToasterService, Toast } from '../../../services/toaster.service';
            class="p-4 rounded-lg shadow-lg animate-fade-in"
            [ngClass]="{
              'bg-green-500 dark:bg-green-600 text-white': toast.type === 'success',
-             'bg-red-500 dark:bg-red-600 text-white': toast.type === 'error',
-             'bg-blue-500 dark:bg-blue-600 text-white': toast.type === 'info',
+             'bg-primary-500 dark:bg-primary-600 text-white': toast.type === 'error',
+             'bg-neutral-600 dark:bg-neutral-700 text-white': toast.type === 'info',
              'bg-yellow-500 dark:bg-yellow-600 text-white': toast.type === 'warning'
            }">
         <div class="flex items-start gap-3">

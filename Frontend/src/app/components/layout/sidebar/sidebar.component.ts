@@ -25,7 +25,7 @@ import { RouterModule } from '@angular/router';
         
         <nav class="space-y-2">
           <a routerLink="/dashboard" (click)="close()"
-             routerLinkActive="bg-accent-500 text-white dark:bg-accent-600"
+             routerLinkActive="bg-primary-500 text-white dark:bg-primary-600"
              [routerLinkActiveOptions]="{ exact: true }"
              class="flex items-center gap-3 px-4 py-2 rounded-lg text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
             <span>Dashboard</span>
           </a>
           <a routerLink="/templates" (click)="close()"
-             routerLinkActive="bg-accent-500 text-white dark:bg-accent-600"
+             routerLinkActive="bg-primary-500 text-white dark:bg-primary-600"
              [routerLinkActiveOptions]="{ exact: true }"
              class="flex items-center gap-3 px-4 py-2 rounded-lg text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

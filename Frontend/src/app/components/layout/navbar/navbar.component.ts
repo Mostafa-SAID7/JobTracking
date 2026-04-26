@@ -8,11 +8,11 @@ import { ThemeService } from '../../../services/theme.service';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <nav class="bg-white dark:bg-neutral-900 shadow-md border-b border-neutral-200 dark:border-neutral-800">
+    <nav class="bg-light-50 dark:bg-dark-900 shadow-md border-b border-light-300 dark:border-dark-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Mobile Menu Button -->
-          <button (click)="toggleMenu()" class="md:hidden p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-900 dark:text-white">
+          <button (click)="toggleMenu()" class="md:hidden p-2 rounded-lg hover:bg-light-200 dark:hover:bg-dark-800 transition-colors text-dark-900 dark:text-light-50">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -21,9 +21,9 @@ import { ThemeService } from '../../../services/theme.service';
           <!-- Logo -->
           <div class="flex items-center gap-3 flex-1 md:flex-none">
             <div class="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center shadow-lg">
-              <span class="text-white font-bold text-lg">JT</span>
+              <span class="text-light-50 font-bold text-lg">JT</span>
             </div>
-            <h1 class="text-xl font-bold text-neutral-900 dark:text-white hidden sm:block">
+            <h1 class="text-xl font-bold text-dark-900 dark:text-light-50 hidden sm:block">
               Job Tracking
             </h1>
           </div>
@@ -32,19 +32,19 @@ import { ThemeService } from '../../../services/theme.service';
           <div class="hidden md:flex items-center gap-8">
             <a routerLink="/dashboard" routerLinkActive="text-accent-500 border-b-2 border-accent-500" 
                [routerLinkActiveOptions]="{ exact: true }"
-               class="text-neutral-700 dark:text-neutral-300 hover:text-accent-500 dark:hover:text-accent-400 pb-1 transition-colors">
+               class="text-dark-700 dark:text-light-300 hover:text-accent-500 dark:hover:text-accent-400 pb-1 transition-colors">
               Dashboard
             </a>
             <a routerLink="/templates" routerLinkActive="text-accent-500 border-b-2 border-accent-500"
                [routerLinkActiveOptions]="{ exact: true }"
-               class="text-neutral-700 dark:text-neutral-300 hover:text-accent-500 dark:hover:text-accent-400 pb-1 transition-colors">
+               class="text-dark-700 dark:text-light-300 hover:text-accent-500 dark:hover:text-accent-400 pb-1 transition-colors">
               Templates
             </a>
           </div>
 
           <!-- Theme Toggle -->
           <button (click)="toggleTheme()" 
-                  class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors text-neutral-900 dark:text-white">
+                  class="p-2 rounded-lg bg-light-200 dark:bg-dark-800 hover:bg-light-300 dark:hover:bg-dark-700 transition-colors text-dark-900 dark:text-light-50">
             <svg *ngIf="!(darkMode$ | async)" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
             </svg>
