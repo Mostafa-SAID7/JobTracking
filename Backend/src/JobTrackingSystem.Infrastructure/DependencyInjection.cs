@@ -16,8 +16,19 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         // Database
+        var useInMemory = configuration.GetValue<bool>("UseInMemoryDatabase", false);
+        
         services.AddDbContext<JobTrackingDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        {
+            if (useInMemory)
+            {
+                options.UseInMemoryDatabase("JobTrackingSystemDb");
+            }
+            else
+            {
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            }
+        });
 
         // Repositories
         services.AddScoped<IJobRepository, JobRepository>();
