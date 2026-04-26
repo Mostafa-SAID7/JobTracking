@@ -1,0 +1,34 @@
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy solution and project files
+COPY ["Backend/JobTrackingSystem.sln", "./"]
+COPY ["Backend/src/JobTrackingSystem.API/JobTrackingSystem.API.csproj", "src/JobTrackingSystem.API/"]
+COPY ["Backend/src/JobTrackingSystem.Application/JobTrackingSystem.Application.csproj", "src/JobTrackingSystem.Application/"]
+COPY ["Backend/src/JobTrackingSystem.Domain/JobTrackingSystem.Domain.csproj", "src/JobTrackingSystem.Domain/"]
+COPY ["Backend/src/JobTrackingSystem.Infrastructure/JobTrackingSystem.Infrastructure.csproj", "src/JobTrackingSystem.Infrastructure/"]
+
+# Restore dependencies
+RUN dotnet restore "JobTrackingSystem.sln"
+
+# Copy source code
+COPY ["Backend/", "./"]
+
+# Build
+RUN dotnet build "JobTrackingSystem.sln" -c Release -o /app/build
+
+# Publish stage
+FROM build AS publish
+RUN dotnet publish "JobTrackingSystem.sln" -c Release -o /app/publish
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+EXPOSE 5001
+ENV ASPNETCORE_URLS=https://+:5001
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+ENTRYPOINT ["dotnet", "JobTrackingSystem.API.dll"]

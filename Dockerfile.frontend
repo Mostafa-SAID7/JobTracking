@@ -1,0 +1,34 @@
+# Build stage
+FROM node:18-alpine AS build
+WORKDIR /app
+
+# Copy package files
+COPY Frontend/package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY Frontend/src ./src
+COPY Frontend/angular.json .
+COPY Frontend/tsconfig.json .
+COPY Frontend/tsconfig.app.json .
+COPY Frontend/tailwind.config.js .
+COPY Frontend/postcss.config.js .
+
+# Build Angular app
+RUN npm run build -- --configuration production
+
+# Runtime stage
+FROM node:18-alpine
+WORKDIR /app
+
+# Install serve to run the app
+RUN npm install -g serve
+
+# Copy built app from build stage
+COPY --from=build /app/dist/job-tracking-system ./dist
+
+EXPOSE 4200
+
+CMD ["serve", "-s", "dist", "-l", "4200"]

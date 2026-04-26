@@ -1,0 +1,54 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+.npm
+
+# .NET
+bin
+obj
+*.dll
+*.exe
+*.pdb
+.vs
+.vscode
+*.user
+*.suo
+
+# Frontend
+dist
+.angular
+
+# Documentation
+docs
+README.md
+*.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+*.swp
+*.swo
+
+# Docker
+Dockerfile*
+docker-compose.yml
+.dockerignore
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+.env
+.env.local
+*.log
