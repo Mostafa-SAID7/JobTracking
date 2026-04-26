@@ -8,10 +8,11 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ToasterService } from '../services/toaster.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private toasterService: ToasterService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -23,10 +24,11 @@ export class ErrorInterceptor implements HttpInterceptor {
           errorMessage = `Error: ${error.error.message}`;
         } else {
           // Server-side error
-          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+          errorMessage = error.error?.message || `Error Code: ${error.status}`;
         }
 
         console.error(errorMessage);
+        this.toasterService.error(errorMessage);
         return throwError(() => error);
       })
     );

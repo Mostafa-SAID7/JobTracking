@@ -1,5 +1,7 @@
 namespace JobTrackingSystem.Application.DTOs;
 
+using Microsoft.AspNetCore.Http;
+
 public class JobDto
 {
     public int Id { get; set; }
