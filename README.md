@@ -118,6 +118,7 @@ SMTP_PORT=587
 | [docs/WHATSAPP.md](docs/WHATSAPP.md) | WhatsApp Business API setup |
 | [docs/BACKEND_STRUCTURE.md](docs/BACKEND_STRUCTURE.md) | Backend folder structure |
 | [docs/FRONTEND_STRUCTURE.md](docs/FRONTEND_STRUCTURE.md) | Frontend folder structure |
+| [docs/FEATURES.md](docs/FEATURES.md) | Complete features list |
 
 ---
 
