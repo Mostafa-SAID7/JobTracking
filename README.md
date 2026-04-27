@@ -60,6 +60,8 @@ Full details:
 | 🎨 **Responsive UI** | Tailwind CSS styling |
 | 🐳 **Docker Ready** | Full containerization |
 
+Full details: [docs/FEATURES.md](docs/FEATURES.md)
+
 ---
 
 ## 🔌 API
