@@ -98,6 +98,18 @@ SMTP_HOST=...
 SMTP_PORT=...
 ```
 
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING](.github/CONTRIBUTING.md) for guidelines.
+
+## Security
+
+Found a vulnerability? See [SECURITY.md](SECURITY.md) for how to report it responsibly.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE) for details.
