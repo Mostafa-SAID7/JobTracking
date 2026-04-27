@@ -7,7 +7,7 @@ import { JobResponse, JobDto, OcrPreviewDto, SendEmailRequest } from '../models'
   providedIn: 'root'
 })
 export class JobService {
-  private apiUrl = 'http://localhost:5001/api/v2/jobs';
+  private apiUrl = 'http://localhost:5001/api/v2/jobscontrollerv2';
 
   constructor(private http: HttpClient) { }
 
@@ -28,10 +28,6 @@ export class JobService {
 
   getAllJobs(): Observable<JobDto[]> {
     return this.http.get<JobDto[]>(this.apiUrl);
-  }
-
-  getJobsByCategory(category: string): Observable<JobDto[]> {
-    return this.http.get<JobDto[]>(`${this.apiUrl}/category/${category}`);
   }
 
   getJobsByChannel(channel: string): Observable<JobDto[]> {

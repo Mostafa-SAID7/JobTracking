@@ -44,20 +44,7 @@ import { RouterModule } from '@angular/router';
           </a>
         </nav>
 
-        <!-- Divider -->
-        <div class="my-6 border-t border-neutral-200 dark:border-neutral-800"></div>
 
-        <!-- Help Section -->
-        <div class="bg-primary-50 dark:bg-neutral-800 p-4 rounded-lg">
-          <div class="flex items-center gap-2 mb-2">
-            <svg class="w-5 h-5 text-neutral-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <h3 class="font-semibold text-neutral-900 dark:text-white">Need Help?</h3>
-          </div>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Check our documentation for guides and tutorials.</p>
-          <a href="#" class="text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 text-sm font-medium transition-colors">Learn more →</a>
-        </div>
       </div>
     </aside>
 

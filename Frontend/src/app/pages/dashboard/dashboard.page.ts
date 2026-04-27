@@ -420,22 +420,24 @@ export class DashboardPageComponent implements OnInit {
         }
       });
     } else if (this.selectedCategory) {
-      this.jobService.getJobsByCategory(this.selectedCategory).subscribe({
+      this.jobService.getAllJobs().subscribe({
         next: (jobs) => {
-          this.jobs = jobs.map(j => ({
-            id: j.id,
-            title: j.title,
-            category: j.category,
-            phoneNumber: j.phoneNumber,
-            email: j.email,
-            applicationChannel: j.applicationChannel,
-            generatedMessage: j.generatedMessage || '',
-            emailSubject: '',
-            emailBody: '',
-            whatsAppLink: '',
-            cvPath: '',
-            createdAt: new Date()
-          }));
+          this.jobs = jobs
+            .filter(j => j.category === this.selectedCategory)
+            .map(j => ({
+              id: j.id,
+              title: j.title,
+              category: j.category,
+              phoneNumber: j.phoneNumber,
+              email: j.email,
+              applicationChannel: j.applicationChannel,
+              generatedMessage: j.generatedMessage || '',
+              emailSubject: '',
+              emailBody: '',
+              whatsAppLink: '',
+              cvPath: '',
+              createdAt: new Date()
+            }));
         },
         error: () => {
           this.error = 'Error filtering jobs';

@@ -45,6 +45,10 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDecisionEngine, ApplicationDecisionEngine>();
         services.AddScoped<IUnifiedMessageGenerationService, UnifiedMessageGenerationService>();
 
+        // WhatsApp Service
+        services.AddScoped<IWhatsAppService, WhatsAppService>();
+        services.AddHttpClient<IWhatsAppService, WhatsAppService>();
+
         // OCR Service (using Mock for now, replace with Tesseract in production)
         var ocrProvider = configuration.GetValue<string>("OcrSettings:Provider") ?? "Mock";
         if (ocrProvider == "Tesseract")
