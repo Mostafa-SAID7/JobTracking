@@ -1,41 +1,53 @@
 ---
-name: Bug Report
+name: 🐛 Bug Report
 about: Report a bug or unexpected behavior
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## Describe the Bug
+## 🐞 Describe the Bug
 
-<!-- A clear description of what the bug is -->
+<!-- A clear and concise description of what the bug is. -->
 
-## Steps to Reproduce
+---
 
-1.
-2.
-3.
+## 🔄 Steps to Reproduce
 
-## Expected Behavior
+1. 
+2. 
+3. 
 
-<!-- What you expected to happen -->
+---
 
-## Actual Behavior
+## 🎯 Expected Behavior
 
-<!-- What actually happened -->
+<!-- A clear description of what you expected to happen. -->
 
-## Environment
+---
 
-- OS:
-- .NET version:
-- Node.js version:
-- Browser (if frontend):
-- Docker: yes / no
+## 🛑 Actual Behavior
 
-## Logs / Screenshots
+<!-- What actually happened. -->
 
-<!-- Paste relevant logs or attach screenshots -->
+---
 
-## Additional Context
+## 💻 Environment
 
-<!-- Any other context about the problem -->
+- **OS**: 
+- **.NET Version**: 
+- **Node.js Version**: 
+- **Browser**: 
+- **Docker**: [ ] Yes / [ ] No
+
+---
+
+## 📸 Logs & Screenshots
+
+<!-- Paste relevant logs or attach screenshots to help us debug. -->
+
+---
+
+## 💡 Additional Context
+
+<!-- Any other context about the problem here. -->

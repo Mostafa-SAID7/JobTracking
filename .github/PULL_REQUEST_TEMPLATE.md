@@ -1,36 +1,46 @@
-## Description
+## 📝 Description
 
 <!-- What does this PR do? Why is it needed? -->
 
-## Type of Change
+---
 
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Refactor / chore
-- [ ] Breaking change
+## 🚦 Type of Change
 
-## Related Issue
+- [ ] ✨ New feature
+- [ ] 🐛 Bug fix
+- [ ] 📖 Documentation update
+- [ ] 🛠️ Refactor / Chore
+- [ ] 💥 Breaking change
+
+---
+
+## 🔗 Related Issue
 
 Closes #<!-- issue number -->
 
-## Changes Made
+---
+
+## 🛠️ Changes Made
 
 <!-- List the key changes -->
--
--
+- 
+- 
 
-## Testing
+---
+
+## 🧪 Testing
 
 <!-- How did you test this? -->
-- [ ] Ran backend locally (`dotnet run`)
-- [ ] Ran frontend locally (`npm start`)
-- [ ] Tested the affected feature manually
-- [ ] Docker Compose works (`docker-compose up`)
+- [ ] 🖥️ Ran backend locally (`dotnet run`)
+- [ ] 🎨 Ran frontend locally (`npm start`)
+- [ ] 🐳 Docker Compose works (`docker-compose up`)
+- [ ] ✅ Tested the affected feature manually
 
-## Checklist
+---
 
-- [ ] Code follows project conventions
-- [ ] No secrets or credentials committed
-- [ ] Documentation updated if needed
-- [ ] CHANGELOG.md updated if applicable
+## ✅ Checklist
+
+- [ ] 📏 Code follows project conventions.
+- [ ] 🔐 No secrets or credentials committed.
+- [ ] 📖 Documentation updated.
+- [ ] 📜 `CHANGELOG.md` updated.

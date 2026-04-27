@@ -1,72 +1,55 @@
-# Backend Structure
+# 🏗️ Backend Structure
 
-```
-Backend/
-├── src/
-│   ├── JobTrackingSystem.API/              # Entry point
-│   │   ├── Controllers/
-│   │   │   ├── JobsControllerV2.cs         # Job endpoints (v2)
-│   │   │   ├── TemplatesController.cs      # Template CRUD
-│   │   │   └── WhatsAppWebhookController.cs
-│   │   ├── Properties/
-│   │   │   └── launchSettings.json         # Ports, profiles
-│   │   ├── appsettings.json                # Config (DB, WhatsApp)
-│   │   ├── appsettings.Development.json
-│   │   ├── Program.cs                      # WebApplicationBuilder
-│   │   └── JobTrackingSystem.API.csproj
-│   │
-│   ├── JobTrackingSystem.Application/      # Business logic
-│   │   ├── Services/
-│   │   │   ├── JobProcessingService.cs
-│   │   │   ├── JobClassificationService.cs
-│   │   │   ├── JobExtractionService.cs
-│   │   │   ├── MessageGenerationService.cs
-│   │   │   ├── TemplateService.cs
-│   │   │   └── WhatsAppService.cs
-│   │   ├── DTOs/
-│   │   │   ├── JobDto.cs
-│   │   │   ├── TemplateDto.cs
-│   │   │   └── WhatsAppMessageDto.cs
-│   │   └── JobTrackingSystem.Application.csproj
-│   │
-│   ├── JobTrackingSystem.Domain/           # Core entities
-│   │   ├── Entities/
-│   │   │   ├── Job.cs
-│   │   │   └── Template.cs
-│   │   ├── Interfaces/
-│   │   │   ├── IJobRepository.cs
-│   │   │   └── ITemplateRepository.cs
-│   │   └── JobTrackingSystem.Domain.csproj
-│   │
-│   └── JobTrackingSystem.Infrastructure/   # Data & external
-│       ├── Data/
-│       │   └── JobTrackingDbContext.cs
-│       ├── Repositories/
-│       │   ├── JobRepository.cs
-│       │   └── TemplateRepository.cs
-│       ├── Migrations/
-│       │   └── *.cs                        # EF migrations
-│       └── JobTrackingSystem.Infrastructure.csproj
+The backend is built using **.NET 8** following **Clean Architecture** principles, ensuring separation of concerns and testability.
+
+---
+
+## 📂 Project Tree
+
+```text
+JobTrackingSystem/
+├── 🌐 API/                   # Entry point, Controllers, Middleware
+│   ├── Controllers/          # REST Endpoints (v2)
+│   └── Program.cs            # DI Container & Middleware
 │
-└── JobTrackingSystem.sln
+├── ⚙️ Application/           # Business Logic & Interfaces
+│   ├── Services/             # OCR, Classification, Extraction
+│   └── DTOs/                 # Data Transfer Objects
+│
+├── 💎 Domain/                # Core Entities & Logic
+│   ├── Entities/             # Job, Template
+│   └── Interfaces/           # Repository Contracts
+│
+└── 💾 Infrastructure/        # Data Access & External APIs
+    ├── Data/                 # DB Context
+    ├── Repositories/         # EF Implementations
+    └── Migrations/           # Database Schema Evolution
 ```
 
-## Layer Responsibilities
+---
 
-| Layer | Purpose | Key Files |
-|-------|---------|-----------|
-| API | HTTP endpoints, validation | `Controllers/` |
-| Application | Business logic, orchestration | `Services/`, `DTOs/` |
-| Domain | Entities, interfaces, rules | `Entities/`, `Interfaces/` |
-| Infrastructure | DB, repos, external APIs | `Data/`, `Repositories/`, `Migrations/` |
+## 🏛️ Layer Responsibilities
 
-## Key Files
+| Layer | Responsibility | Key Technologies |
+| :--- | :--- | :--- |
+| **API** | Request handling, Auth, Swagger | ASP.NET Core v8 |
+| **Application** | Logic orchestration, DTO mapping | C# 12, AutoMapper |
+| **Domain** | Business rules, POCO models | C# 12 |
+| **Infrastructure** | SQL persistence, API integration | EF Core, SQL Server |
 
-| File | Purpose |
-|------|---------|
-| `Program.cs` | DI setup, middleware, Swagger |
-| `appsettings.json` | DB connection, WhatsApp credentials |
-| `JobClassificationService.cs` | Category detection (Backend/Frontend/Fullstack) |
-| `JobExtractionService.cs` | Phone, email, title extraction |
-| `MessageGenerationService.cs` | Template replacement with placeholders |
-| `WhatsAppService.cs` | Send messages via WhatsApp Business API |
+---
+
+## 🛠️ Key Technical Components
+
+| Component | Responsibility |
+| :--- | :--- |
+| **`JobClassificationService`** | Analyzes job descriptions to determine category (Backend/Frontend). |
+| **`JobExtractionService`** | Uses Regex and Logic to extract emails and phone numbers. |
+| **`WhatsAppService`** | Handles communication with the Meta WhatsApp Business API. |
+| **`OCRService`** | Processes image uploads into searchable text. |
+
+---
+
+<p align="center">
+  <a href="INDEX.md">← Back to Index</a>
+</p>

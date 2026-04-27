@@ -1,77 +1,80 @@
-# Contributing to Job Tracking System
+# 👋 Contributing to Job Tracking System
 
-Thank you for your interest in contributing! Here's how to get started.
+Thank you for your interest in contributing! We love pull requests. Follow this guide to get started.
 
-## Getting Started
+---
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/JobTrackingSystem.git`
-3. Create a branch: `git checkout -b feature/your-feature-name`
-4. Make your changes
-5. Push and open a Pull Request
+## 🚀 Getting Started
 
-## Development Setup
+1.  🍴 **Fork** the repository.
+2.  📂 **Clone** your fork: `git clone https://github.com/your-username/JobTrackingSystem.git`
+3.  🌿 **Branch**: `git checkout -b feature/your-feature-name`
+4.  💻 **Develop**: Make your changes and test them locally.
+5.  📤 **Push**: Push to your fork and open a **Pull Request**.
 
-See [docs/SETUP.md](../docs/SETUP.md) for full setup instructions.
+---
 
-**Quick start:**
+## 🛠️ Development Setup
+
+Refer to [**docs/SETUP.md**](../docs/SETUP.md) for full installation steps.
+
+**Quick Commands:**
 ```bash
-# Backend
+# 🖥️ Backend
 cd Backend
-dotnet restore
 dotnet run --project src/JobTrackingSystem.API
 
-# Frontend
+# 🎨 Frontend
 cd Frontend
-npm install
-npm start
+npm install && npm start
 ```
 
-## Branch Naming
+---
+
+## 🏷️ Branch Naming Conventions
 
 | Type | Pattern | Example |
-|------|---------|---------|
-| Feature | `feature/description` | `feature/add-linkedin-channel` |
-| Bug fix | `fix/description` | `fix/phone-extraction-regex` |
-| Docs | `docs/description` | `docs/update-api-reference` |
-| Chore | `chore/description` | `chore/upgrade-dotnet` |
+| :--- | :--- | :--- |
+| **Feature** | `feature/description` | `feature/ocr-multi-language` |
+| **Bug Fix** | `fix/description` | `fix/webhook-validation` |
+| **Docs** | `docs/description` | `docs/improve-readme` |
+| **Refactor** | `refactor/description` | `refactor/clean-services` |
 
-## Commit Messages
+---
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
+## 📝 Commit Messages
 
-```
-feat: add LinkedIn channel support
-fix: correct phone number extraction for Egyptian numbers
-docs: update WhatsApp setup guide
-chore: upgrade to .NET 8.1
-```
+We follow [**Conventional Commits**](https://www.conventionalcommits.org/):
 
-## Pull Request Guidelines
+- `feat: add LinkedIn channel support`
+- `fix: correct phone number extraction`
+- `docs: update setup guide`
+- `chore: bump dependencies`
 
-- Keep PRs focused — one feature or fix per PR
-- Update relevant documentation
-- Ensure the app builds and runs without errors
-- Describe what changed and why in the PR description
+---
 
-## Code Style
+## ✅ Pull Request Guidelines
 
-**Backend (.NET):**
-- Follow standard C# conventions
-- Use `async/await` for I/O operations
-- Add XML doc comments on public methods
+- 🎯 **Focus**: Keep PRs small and focused on a single change.
+- 📖 **Docs**: Update relevant markdown files if you change functionality.
+- 🚦 **Checks**: Ensure the app builds and runs without errors.
+- 📄 **Templates**: Fill out the [**PR Template**](PULL_REQUEST_TEMPLATE.md) completely.
 
-**Frontend (Angular):**
-- Follow Angular style guide
-- Use `OnPush` change detection where possible
-- Keep components small and focused
+---
 
-## Reporting Issues
+## 📏 Code Style
 
-Use GitHub Issues with the appropriate template:
-- Bug report: describe steps to reproduce
-- Feature request: describe the use case
+- **Backend**: Follow standard C# coding conventions and use `async/await` for I/O.
+- **Frontend**: Adhere to the Angular Style Guide and keep components focused.
 
-## Code of Conduct
+---
 
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+## 🤝 Code of Conduct
+
+By participating, you agree to abide by our [**Code of Conduct**](CODE_OF_CONDUCT.md).
+
+---
+
+<p align="center">
+  <a href="../README.md">← Back to README</a>
+</p>

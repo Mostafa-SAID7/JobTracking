@@ -1,30 +1,35 @@
-# API Reference
+# 🔌 API Reference
 
-## Base URL
-```
+Welcome to the **Job Tracking System API** documentation. Our API is designed to be RESTful and easy to integrate with.
+
+---
+
+## 🌍 Base URL
+```text
 https://localhost:5001/api/v2
 ```
 
-## Authentication
-Currently no authentication required. Future versions will use JWT tokens.
+---
 
-## Response Format
+## 🔐 Authentication
+Currently, no authentication is required for local development. Future production versions will implement **JWT Bearer Tokens**.
 
-### Success Response
+---
+
+## 📦 Data Formats
+
+### ✅ Success Response
 ```json
 {
   "id": 1,
   "title": "Senior .NET Developer",
   "category": "Backend",
-  "phoneNumber": "+1234567890",
-  "email": "contact@company.com",
-  "applicationChannel": "WhatsApp",
-  "generatedMessage": "Hi, I'm interested in the Senior .NET Developer position...",
+  "generatedMessage": "Hi, I'm interested in the position...",
   "createdAt": "2024-01-15T10:30:00Z"
 }
 ```
 
-### Error Response
+### ❌ Error Response
 ```json
 {
   "message": "Error description",
@@ -33,12 +38,13 @@ Currently no authentication required. Future versions will use JWT tokens.
 }
 ```
 
-## Jobs Endpoints
+---
 
-### Create Job
-**POST** `/jobs`
+## 📝 Jobs Endpoints
 
-Create and process a new job from text or image.
+### 🚀 Create Job
+**`POST /jobs`**  
+Process a new job from text or an image.
 
 **Request**
 ```bash
@@ -47,6 +53,49 @@ curl -X POST https://localhost:5001/api/jobs \
   -F "sourceMessage=Looking for .NET Developer" \
   -F "image=@job_image.jpg"
 ```
+
+---
+
+## 🗂️ Templates Endpoints
+
+### 🛠️ Create Template
+**`POST /templates`**  
+Create a new response template for a category.
+
+**Request Body**
+```json
+{
+  "category": "Backend",
+  "messageTemplate": "Hi, I'm interested in the {JobTitle} position...",
+  "email": "your@email.com"
+}
+```
+
+---
+
+## 📑 Status Codes Reference
+
+| Code | Meaning | Description |
+| :--- | :--- | :--- |
+| **200** | `OK` | Request successful. |
+| **201** | `Created` | Resource created successfully. |
+| **400** | `Bad Request` | Invalid input or missing fields. |
+| **404** | `Not Found` | Resource not found. |
+| **500** | `Server Error` | Something went wrong on our side. |
+
+---
+
+## 📚 Learn More
+
+- ⚡ [Quick Start](QUICKSTART.md)
+- 📐 [Architecture](ARCHITECTURE.md)
+- ⚙️ [Setup Guide](SETUP.md)
+
+---
+
+<p align="center">
+  <a href="INDEX.md">← Back to Index</a>
+</p>
 
 **Parameters**
 - `sourceMessage` (string, optional): Raw job message text

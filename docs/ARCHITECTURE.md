@@ -1,59 +1,36 @@
-# System Architecture
+# 📐 System Architecture
 
-## Overview
+The Job Tracking System is built using **Clean Architecture** (Onion Architecture) principles. This ensures that the core business logic is isolated from external concerns like databases, UI frameworks, and third-party APIs.
 
-The Job Tracking System follows **Clean Architecture** principles with clear separation of concerns across multiple layers.
+---
 
-## Architecture Diagram
+## 🏗️ Core Architecture
 
+The system is divided into four distinct layers, each with a specific responsibility and strict dependency rules.
+
+```mermaid
+graph TD
+    API[API Layer<br/><i>Controllers, Endpoints</i>]
+    App[Application Layer<br/><i>Services, DTOs, Logic</i>]
+    Domain[Domain Layer<br/><i>Entities, Interfaces</i>]
+    Infra[Infrastructure Layer<br/><i>EF Core, Repositories</i>]
+    
+    API --> App
+    App --> Domain
+    App --> Infra
+    Infra --> Domain
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     Frontend (Angular)                       │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Components (Dashboard, Templates)                   │   │
-│  │  Services (Job, Template)                            │   │
-│  │  Models (DTOs)                                       │   │
-│  └──────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-                            ↓ HTTP/REST
-┌─────────────────────────────────────────────────────────────┐
-│                    Backend API (.NET 8)                      │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  API Layer (Controllers, Endpoints)                  │   │
-│  │  ├─ JobsControllerV2                                 │   │
-│  │  └─ TemplatesController                              │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Application Layer (Services, DTOs)                  │   │
-│  │  ├─ JobProcessingService                             │   │
-│  │  ├─ JobClassificationService                         │   │
-│  │  ├─ JobExtractionService                             │   │
-│  │  ├─ MessageGenerationService                         │   │
-│  │  └─ TemplateService                                  │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Domain Layer (Entities, Interfaces)                 │   │
-│  │  ├─ Job (Entity)                                     │   │
-│  │  ├─ Template (Entity)                                │   │
-│  │  ├─ IJobRepository                                   │   │
-│  │  └─ ITemplateRepository                              │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Infrastructure Layer (Data, Repositories)           │   │
-│  │  ├─ JobTrackingDbContext                             │   │
-│  │  ├─ JobRepository                                    │   │
-│  │  ├─ TemplateRepository                               │   │
-│  │  └─ Migrations                                       │   │
-│  └──────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-                            ↓ SQL
-┌─────────────────────────────────────────────────────────────┐
-│                    SQL Server Database                       │
-│  ├─ Jobs Table                                              │
-│  ├─ Templates Table                                         │
-│  └─ Migrations                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+
+---
+
+## 🧱 Layer Breakdown
+
+| Layer | Responsibility | Key Components |
+| :--- | :--- | :--- |
+| **API** | Entry point for HTTP requests. Handles routing, validation, and responses. | `JobsController`, `TemplatesController`, `Program.cs` |
+| **Application** | Orchestrates business processes and transformations. | `JobProcessingService`, `JobClassificationService`, `MessageGenerationService` |
+| **Infrastructure**| Implementation of data access and external integrations. | `JobTrackingDbContext`, `Repositories`, `Migrations` |
+| **Domain** | Core business entities and repository contracts. Pure logic, no dependencies. | `Job`, `Template`, `IJobRepository` |
 
 ## Layer Responsibilities
 
@@ -107,42 +84,40 @@ The Job Tracking System follows **Clean Architecture** principles with clear sep
   - Manage migrations
   - Configure EF Core
 
-## Data Flow
+## 🔄 Data Flow
 
 ### Job Processing Pipeline
 
-```
-1. User submits job message (text or image)
-   ↓
-2. API receives request (POST /api/jobs)
-   ↓
-3. JobProcessingService orchestrates:
-   a) Extract data (phone, title)
-   b) Classify category
-   c) Find matching template
-   d) Generate message
-   ↓
-4. Save to database
-   ↓
-5. Return response with generated message
-   ↓
-6. Frontend displays message and WhatsApp link
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant A as API (Controller)
+    participant S as Processing Service
+    participant D as Database
+
+    U->>F: Submits Job Message
+    F->>A: POST /api/jobs
+    A->>S: ProcessJobAsync(message)
+    S->>S: Extract Data & Classify
+    S->>S: Match Template & Generate
+    S->>D: Save Job Entity
+    D-->>S: Success
+    S-->>A: Job Result
+    A-->>F: 200 OK (Processed Job)
+    F-->>U: Display WhatsApp/Email Links
 ```
 
-### Template Matching
+### Template Matching Logic
 
-```
-Job Category (e.g., "Backend")
-   ↓
-Query Templates by Category
-   ↓
-Found? → Use Template
-   ↓
-Not Found? → Use Default Template
-   ↓
-Replace Placeholders with Job Data
-   ↓
-Generate Final Message
+```mermaid
+graph TD
+    Start[Job Classified] --> Query{Find Template<br/>for Category?}
+    Query -- Found --> Apply[Apply Custom Template]
+    Query -- Not Found --> Default[Apply Default Template]
+    Apply --> Replace[Replace {Placeholders}]
+    Default --> Replace
+    Replace --> Final[Generate Final Message]
 ```
 
 ## Key Design Patterns

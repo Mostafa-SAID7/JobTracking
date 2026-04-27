@@ -1,63 +1,75 @@
-# Documentation Index
+# 📚 Documentation Hub
 
-## All Docs
+Welcome to the **Job Tracking System** documentation. Here you'll find everything from architectural deep-dives to quick setup guides.
 
-| File | Description |
-|------|-------------|
-| [QUICKSTART.md](QUICKSTART.md) | 5-minute setup and first test |
-| [SETUP.md](SETUP.md) | Full installation guide (backend, frontend, Docker) |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Clean Architecture layers, data flow, design patterns |
-| [API_REFERENCE.md](API_REFERENCE.md) | All endpoints, request/response examples, placeholders |
-| [DEPLOYMENT.md](DEPLOYMENT.md) | Docker, Azure, and AWS deployment |
-| [WHATSAPP.md](WHATSAPP.md) | WhatsApp Business API webhook setup |
+---
 
-## By Role
+## 🚀 Getting Started
 
-**New developer** → [QUICKSTART.md](QUICKSTART.md) → [ARCHITECTURE.md](ARCHITECTURE.md) → [API_REFERENCE.md](API_REFERENCE.md)
+If you're new here, follow these steps to get the system running:
 
-**DevOps / infra** → [DEPLOYMENT.md](DEPLOYMENT.md)
+1.  **[Quick Start](QUICKSTART.md)**: The "happy path" to getting the app running in 5 minutes.
+2.  **[Installation & Setup](SETUP.md)**: Detailed guide for manual installation, database configuration, and troubleshooting.
+3.  **[API Reference](API_REFERENCE.md)**: Explore the RESTful endpoints and data schemas.
 
-**API consumer** → [API_REFERENCE.md](API_REFERENCE.md)
+---
 
-**WhatsApp integration** → [WHATSAPP.md](WHATSAPP.md)
+## 🏗️ System Architecture
 
-## Job Processing Flow
+Understand how the system is built and how data flows through the layers.
 
-```
-Raw message / image
-  → OCR (if image)
-  → Classification (Backend / Frontend / Fullstack)
-  → Data extraction (phone, title, email)
-  → Template matching by category
-  → Message generation with placeholders
-  → WhatsApp link / Email / Manual
-```
+*   **[Core Architecture](ARCHITECTURE.md)**: Clean Architecture layers, design patterns, and dependency injection.
+*   **[Backend Structure](BACKEND_STRUCTURE.md)**: Deep dive into the `.NET` project organization.
+*   **[Frontend Structure](FRONTEND_STRUCTURE.md)**: Overview of the Angular application architecture.
 
-## Application Channels
+---
 
-| Channel | How it works |
-|---------|-------------|
-| WhatsApp | Generates `wa.me` link with pre-filled message |
-| Email | Sends via SMTP using email template |
-| Manual | Displays generated message for manual copy/send |
+## 🛠️ Specialized Guides
 
-## Common Tasks
+Detailed documentation for specific features and workflows.
 
-**Add a new job category:**
-1. Update `CategoryKeywords` in `JobClassificationService.cs`
-2. Create a template for the new category via UI or API
+*   **[WhatsApp Integration](WHATSAPP.md)**: Configuring webhooks and Business API settings.
+*   **[Deployment Guide](DEPLOYMENT.md)**: Instructions for Docker, Azure, and AWS environments.
+*   **[Feature List](FEATURES.md)**: Comprehensive breakdown of all system capabilities.
 
-**Change API or frontend port:**
-- API: `Backend/src/JobTrackingSystem.API/Properties/launchSettings.json`
-- Frontend: `Frontend/angular.json`
+---
 
-**Run database migrations:**
-```bash
-cd Backend/src/JobTrackingSystem.API
-dotnet ef database update
+## 🔄 Core Workflows
+
+### Job Processing Pipeline
+
+```mermaid
+graph LR
+    Input[Raw Message] --> OCR{OCR needed?}
+    OCR -- Yes --> Extract[OCR Extraction]
+    OCR -- No --> Classify[Classification]
+    Extract --> Classify
+    Classify --> Template[Template Matching]
+    Template --> Generate[Message Generation]
+    Generate --> Output[WhatsApp/Email/Manual]
 ```
 
-**Deploy with Docker:**
-```bash
-docker-compose up --build
-```
+---
+
+## 🛠️ Common Developer Tasks
+
+| Task | Guide / File |
+| :--- | :--- |
+| **Add a new job category** | Update `JobClassificationService.cs` and add a Template via UI. |
+| **Change API Port** | `Backend/src/JobTrackingSystem.API/Properties/launchSettings.json` |
+| **Update DB Schema** | Run `dotnet ef migrations add <Name>` and `dotnet ef database update`. |
+| **Configure SMTP** | Update the `.env` file or `appsettings.json`. |
+
+---
+
+## 🆘 Support & Troubleshooting
+
+*   Check the **Troubleshooting** section in [SETUP.md](SETUP.md#troubleshooting).
+*   Review the [CHANGELOG.md](../CHANGELOG.md) for recent updates and breaking changes.
+*   Report security issues via [SECURITY.md](../SECURITY.md).
+
+---
+
+<p align="center">
+  <a href="../README.md">← Back to Project Root</a>
+</p>

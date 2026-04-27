@@ -1,33 +1,47 @@
-# Security Policy
+# 🛡️ Security Policy
 
-## Supported Versions
+We take the security of the **Job Tracking System** seriously. This document outlines our supported versions and how to report vulnerabilities.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x     | ✅ Yes             |
-| 1.x     | ❌ No              |
+---
 
-## Reporting a Vulnerability
+## ✅ Supported Versions
 
-If you discover a security vulnerability, please **do not** open a public GitHub issue.
+| Version | Supported |
+| :--- | :--- |
+| **2.x** | ✅ **Active Support** |
+| **1.x** | ❌ End of Life |
 
-Instead, report it privately:
+---
 
-1. Email the details to the maintainers (see repository contacts)
-2. Include a description of the vulnerability
-3. Include steps to reproduce
-4. Include potential impact
+## 🛑 Reporting a Vulnerability
 
-You can expect:
-- Acknowledgement within 48 hours
-- A fix or mitigation plan within 7 days for critical issues
-- Credit in the changelog if desired
+If you discover a security vulnerability, please **do not** open a public GitHub issue. Public disclosure puts all users at risk.
 
-## Security Best Practices for Deployment
+**Instead, follow these steps:**
 
-- Never commit `.env` files or `appsettings.json` with real credentials
-- Use environment variables or secrets managers in production
-- Rotate the `WhatsApp` access token regularly
-- Keep `.NET` and `Node.js` dependencies up to date
-- Enable HTTPS in all environments
-- Restrict CORS to known origins in production
+1.  **Email**: Send the details to our security team (see repository contact info).
+2.  **Details**: Include a full description of the vulnerability.
+3.  **Reproduce**: Provide clear steps to reproduce the issue.
+4.  **Impact**: Explain the potential impact of the vulnerability.
+
+**What you can expect from us:**
+- 🕒 Acknowledgement of your report within **48 hours**.
+- 🛠️ A fix or mitigation plan within **7 days** for critical issues.
+- 🎖️ Credit in the [Changelog](CHANGELOG.md) (if requested).
+
+---
+
+## 🔒 Security Best Practices
+
+To ensure your deployment remains secure, please follow these guidelines:
+
+- 🔑 **Secrets Management**: Never commit `.env` or `appsettings.json` with real credentials. Use Environment Variables or Secrets Managers (Azure Key Vault, AWS Secrets Manager).
+- 🔄 **Token Rotation**: Rotate your **WhatsApp Access Tokens** and **API Keys** regularly.
+- 📦 **Updates**: Keep `.NET` and `Node.js` dependencies updated to patch known vulnerabilities.
+- 🌐 **Network**: Always enable **HTTPS** and restrict **CORS** origins to your trusted frontend domain in production.
+
+---
+
+<p align="center">
+  <a href="README.md">← Back to README</a>
+</p>

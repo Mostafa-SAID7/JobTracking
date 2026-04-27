@@ -1,23 +1,29 @@
 ---
-name: Feature Request
+name: ✨ Feature Request
 about: Suggest a new feature or improvement
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## Problem / Motivation
+## 🚀 Problem / Motivation
 
-<!-- What problem does this feature solve? -->
+<!-- What problem does this feature solve? Describe the use case. -->
 
-## Proposed Solution
+---
 
-<!-- Describe the feature you'd like -->
+## ✨ Proposed Solution
 
-## Alternatives Considered
+<!-- Describe the feature you'd like to see implemented. -->
 
-<!-- Any alternative approaches you've thought about -->
+---
 
-## Additional Context
+## 🏗️ Alternatives Considered
 
-<!-- Screenshots, mockups, or examples -->
+<!-- Any alternative approaches or solutions you've thought about. -->
+
+---
+
+## 📸 Additional Context
+
+<!-- Add screenshots, mockups, or any other relevant information here. -->
