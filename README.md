@@ -59,6 +59,7 @@ JobTrackingSystem/
 - [API Reference](docs/API_REFERENCE.md)
 - [Deployment](docs/DEPLOYMENT.md)
 - [Quick Start](docs/QUICKSTART.md)
+- [WhatsApp Integration](docs/WHATSAPP.md)
 
 ## Features
 
