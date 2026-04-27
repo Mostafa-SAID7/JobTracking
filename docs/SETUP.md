@@ -238,12 +238,5 @@ npm run build
 1. ✅ Backend running on `https://localhost:5001`
 2. ✅ Frontend running on `http://localhost:4200`
 3. ✅ Database created and accessible
-4. Read [Quick Start](./QUICKSTART.md) to test the system
-5. Read [Configuration](./backend/CONFIGURATION.md) for advanced setup
-
-## Support
-
-For detailed configuration options, see:
-- [Backend Configuration](./backend/CONFIGURATION.md)
-- [Frontend Configuration](./frontend/STRUCTURE.md)
-- [Docker Setup](./deployment/DOCKER.md)
+4. Read [QUICKSTART.md](./QUICKSTART.md) to test the system with sample jobs
+5. Read [DEPLOYMENT.md](./DEPLOYMENT.md) for Docker and cloud deployment

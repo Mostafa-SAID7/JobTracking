@@ -1,58 +1,39 @@
 # Quick Start Guide
 
-## 5-Minute Setup
+Get the system running and test it in 5 minutes.
 
-### Backend (Windows)
+## 1. Start the Backend
 
-1. **Open PowerShell in Backend folder**
-   ```powershell
-   cd Backend
-   ```
+```bash
+cd Backend
+dotnet restore
+cd src/JobTrackingSystem.API
+dotnet ef database update
+dotnet run
+```
 
-2. **Update Database Connection**
-   - Edit `src/JobTrackingSystem.API/appsettings.json`
-   - Change connection string if needed (LocalDB is default)
+API: `https://localhost:5001` · Swagger: `https://localhost:5001/swagger`
 
-3. **Create Database**
-   ```powershell
-   cd src/JobTrackingSystem.API
-   dotnet ef database update
-   ```
+## 2. Start the Frontend
 
-4. **Run API**
-   ```powershell
-   dotnet run
-   ```
-   - API available at: `https://localhost:5001`
-   - Swagger UI: `https://localhost:5001/swagger`
+```bash
+cd Frontend
+npm install
+npm start
+```
 
-### Frontend (Windows)
+App: `http://localhost:4200`
 
-1. **Open PowerShell in Frontend folder**
-   ```powershell
-   cd Frontend
-   ```
+## 3. Create a Template
 
-2. **Install Dependencies**
-   ```powershell
-   npm install
-   ```
+**POST** `https://localhost:5001/api/templates` (via Swagger or UI):
 
-3. **Start Development Server**
-   ```powershell
-   npm start
-   ```
-   - App available at: `http://localhost:4200`
-
-## Testing the System
-
-### 1. Create a Template (via Swagger or UI)
-
-**POST** `/api/templates`
 ```json
 {
   "category": "Backend",
-  "messageTemplate": "Hi, I'm interested in the {JobTitle} position. I have experience with .NET and Web APIs. Check my work at {Github} and {Portfolio}. Contact: {Email}",
+  "messageTemplate": "Hi, I'm interested in the {JobTitle} position. Check my work at {Github} and {Portfolio}. Contact: {Email}",
+  "emailSubjectTemplate": "Application for {JobTitle}",
+  "emailBodyTemplate": "Dear Hiring Manager,\n\nI am interested in the {JobTitle} position...",
   "cvPath": "/cvs/backend_cv.pdf",
   "githubUrl": "https://github.com/yourname",
   "portfolioUrl": "https://yourportfolio.com",
@@ -60,133 +41,65 @@
 }
 ```
 
-### 2. Submit a Job Message
+## 4. Submit a Job Message
 
-Go to Dashboard and paste a sample job message:
+Go to the Dashboard and paste a job message:
+
 ```
-Looking for .NET Developer
+Hiring: Senior .NET Developer
 We need an experienced .NET developer for our Web API project.
 Contact: +1234567890
 ```
 
-### 3. View Generated Message
-
-- System classifies as "Backend"
-- Extracts phone number
-- Generates personalized message
-- Provides WhatsApp link
-
-### 4. Send via WhatsApp
-
-Click "Send via WhatsApp" button to open WhatsApp with pre-filled message.
+The system will:
+- Classify as "Backend"
+- Extract the phone number
+- Generate a personalized message using your template
+- Provide a WhatsApp link and email option
 
 ## Sample Job Messages
 
-### Backend Job
+**Backend:**
 ```
-Hiring: Senior .NET Developer
-We're looking for a .NET expert with ASP.NET Core experience.
-Web API development required.
-Contact: +1234567890
+Senior .NET Developer needed. ASP.NET Core experience required. Contact: +1234567890
 ```
 
-### Frontend Job
+**Frontend:**
 ```
-Frontend Developer Needed
-React and Angular experience required.
-TypeScript mandatory.
-Call: +9876543210
+Frontend Developer Needed. React and Angular experience required. Call: +9876543210
 ```
 
-### Fullstack Job
+**Fullstack:**
 ```
-Full Stack Developer
-Fullstack position - both backend and frontend skills needed.
-Phone: +1111111111
+Full Stack Developer position. Both backend and frontend skills needed. Phone: +1111111111
 ```
+
+## Template Placeholders
+
+| Placeholder | Description |
+|-------------|-------------|
+| `{JobTitle}` | Extracted job title |
+| `{Category}` | Classified category |
+| `{Github}` | GitHub URL from template |
+| `{Portfolio}` | Portfolio URL from template |
+| `{Email}` | Email from template |
+
+## Key Files to Customize
+
+| What | File |
+|------|------|
+| Classification keywords | `Backend/src/JobTrackingSystem.Application/Services/JobClassificationService.cs` |
+| API port | `Backend/src/JobTrackingSystem.API/Properties/launchSettings.json` |
+| Frontend API URL | `Frontend/src/app/services/job.service.ts` |
+| Frontend port | `Frontend/angular.json` |
 
 ## Troubleshooting
 
-### Backend Won't Start
-- Check .NET 8.0 is installed: `dotnet --version`
-- Verify SQL Server is running
-- Check connection string in appsettings.json
+| Problem | Fix |
+|---------|-----|
+| Backend won't start | Check `dotnet --version` (need 8.0+), verify SQL Server is running |
+| Database error | Run `dotnet ef database update` from the API project folder |
+| Frontend CORS error | Ensure backend is running, check API URL in `job.service.ts` |
+| Port in use | Change port in `launchSettings.json` or `angular.json` |
 
-### Frontend Won't Load
-- Ensure backend is running on port 5001
-- Check browser console for CORS errors
-- Verify API URL in services
-
-### Database Issues
-- Delete database and run migrations again
-- Check SQL Server connection string
-- Verify LocalDB is installed: `sqllocaldb info`
-
-## Project Structure Quick Reference
-
-```
-Backend/
-├── src/
-│   ├── JobTrackingSystem.API/          ← Start here (Program.cs)
-│   ├── JobTrackingSystem.Application/  ← Business logic
-│   ├── JobTrackingSystem.Domain/       ← Entities & interfaces
-│   └── JobTrackingSystem.Infrastructure/ ← Database & repos
-
-Frontend/
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── dashboard/              ← Main UI
-│   │   │   └── template-management/    ← Template CRUD
-│   │   └── services/
-│   │       ├── job.service.ts          ← Job API calls
-│   │       └── template.service.ts     ← Template API calls
-│   └── index.html
-```
-
-## Key Files to Modify
-
-### Add New Classification Keywords
-- File: `Backend/src/JobTrackingSystem.Application/Services/JobClassificationService.cs`
-- Update `CategoryKeywords` dictionary
-
-### Customize Message Templates
-- Use Dashboard UI or API
-- Placeholders: `{JobTitle}`, `{Category}`, `{Github}`, `{Portfolio}`, `{Email}`
-
-### Change API Port
-- File: `Backend/src/JobTrackingSystem.API/Properties/launchSettings.json`
-- Update `applicationUrl`
-
-### Change Frontend Port
-- File: `Frontend/angular.json`
-- Update `serve` configuration
-
-## Next Steps
-
-1. ✅ Set up database
-2. ✅ Create templates for each category
-3. ✅ Test with sample job messages
-4. ✅ Customize message templates
-5. ✅ Deploy to production
-
-## Production Checklist
-
-- [ ] Update connection string for production database
-- [ ] Configure CORS for production domain
-- [ ] Set up HTTPS certificates
-- [ ] Enable logging and monitoring
-- [ ] Create database backups
-- [ ] Test WhatsApp link generation
-- [ ] Deploy backend to cloud
-- [ ] Deploy frontend to CDN
-- [ ] Set up CI/CD pipeline
-- [ ] Monitor application health
-
-## Support
-
-For issues or questions:
-1. Check logs in backend console
-2. Check browser console (F12)
-3. Review API responses in Network tab
-4. Check database for data integrity
+For detailed setup, see [SETUP.md](SETUP.md).

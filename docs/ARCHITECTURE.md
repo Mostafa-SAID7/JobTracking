@@ -167,20 +167,6 @@ Generate Final Message
 - Prevents exposing internal structure
 - Enables API versioning
 
-## Technology Stack
-
-### Backend
-- **.NET 8.0**: Modern, high-performance framework
-- **Entity Framework Core 8.0**: ORM for data access
-- **SQL Server**: Relational database
-- **Dependency Injection**: Built-in .NET DI container
-
-### Frontend
-- **Angular 17**: Modern SPA framework
-- **TypeScript**: Type-safe development
-- **RxJS**: Reactive programming
-- **Tailwind CSS**: Utility-first styling
-
 ## Scalability Considerations
 
 ### Current Architecture

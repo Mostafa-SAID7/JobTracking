@@ -2,7 +2,7 @@
 
 ## Base URL
 ```
-https://localhost:5001/api
+https://localhost:5001/api/v2
 ```
 
 ## Authentication
